@@ -4,17 +4,18 @@ import { createBottomTabNavigator } from 'react-navigation';
 import { Images, Colors, Metrics } from './App/Themes'
 
 import HomeScreen from './App/Screens/HomeScreen.js'
+import DisasterpieceNav from './App/Screens/Disasterpiece/DisasterpieceNav.js'
 import ProfileScreen from './App/Screens/ProfileScreen.js'
 import GalleryScreen from './App/Screens/GalleryScreen.js'
 import ArtbotNavigator from './App/Components/ArtbotNavigator.js'
-import SessionSettings from './App/Screens/Disasterpiece/SessionSettings.js'
+import SessionSettingsScreen from './App/Screens/Disasterpiece/SessionSettingsScreen.js'
 
 const TabNav = createBottomTabNavigator({
   ProfileScreen: {screen: ProfileScreen},
-  HomeScreen: {screen: HomeScreen},
+  DisasterpieceNav: {screen: DisasterpieceNav},
   GalleryScreen: {screen: GalleryScreen},
 }, {
-  initialRouteName: 'HomeScreen',
+  initialRouteName: 'DisasterpieceNav',
   tabBarComponent: ({navigation}) => <ArtbotNavigator navigate={navigation} />,
   tabBarOptions: {
     activeTintColor: 'gray'

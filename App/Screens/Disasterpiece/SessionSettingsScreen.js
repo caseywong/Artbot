@@ -9,11 +9,16 @@ import { Dropdown } from 'react-native-material-dropdown'
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
-export default class SessionSettings extends React.Component {
+export default class SessionSettingsScreeen extends React.Component {
 
   constructor(props) {
     super(props);
   }
+
+  static navigationOptions = {
+    headerTitle: 'Settings',
+    headerStyle: { backgroundColor: 'deepskyblue' }
+  };
 
   state = {
     sessionTime: 5,
@@ -22,7 +27,7 @@ export default class SessionSettings extends React.Component {
   }
 
   render() {
-    const { navigate } = this.props;
+    const { navigation } = this.props;
     const dataTime = [{
       label: "1 min", value: '1',
     }, {
@@ -38,7 +43,6 @@ export default class SessionSettings extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.userMessage}>
-              <Text style={styles.welcomeMessage}> Settings </Text>
               <Text style={styles.continueMessage}> Chose your settings for this session! </Text>
         </View>
         <View style={styles.imageContainer}>
@@ -64,7 +68,7 @@ export default class SessionSettings extends React.Component {
             />
             <Text style={styles.promptMessage}> How would you like Artbot's temperament to be? </Text>
               <Slider
-                 style={{ width: 200, padding: 50}}
+                 style={{ width: 200, padding: 40}}
                  step={1}
                  value={50}
                  minimumValue={1}
@@ -76,7 +80,7 @@ export default class SessionSettings extends React.Component {
         </View>
         <View style={styles.start}>
           <TouchableOpacity style={styles.proceedButtonWrapper}
-              onPress={()=> Alert.alert('Hi')}>
+              onPress={()=> navigation.navigate('BlankCanvasScreen')}>
               <Text style={styles.continueMessage}> Start! </Text>
           </TouchableOpacity>
         </View>
@@ -92,7 +96,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     alignItems: 'center',
     backgroundColor: Colors.snow
   },

@@ -5,6 +5,7 @@ import { StyleSheet, Text, View, Image,
 
 import { FontAwesome } from '@expo/vector-icons';
 import { Images, Colors, Metrics } from '../Themes'
+import Modal from 'react-native-modal';
 
 import StatsCalendar from '../Components/ProfileStats/StatsCalendar'
 import StatsGraph from '../Components/ProfileStats/StatsGraph'
@@ -14,7 +15,8 @@ const SCREEN_WIDTH = Dimensions.get('window').width;
 export default class ProfileScreen extends React.Component {
 
   state = {
-    calendar: true
+    calendar: true,
+    isModalVisibile: false
   }
 
   changeStatsDisplay = async(type) => {
@@ -37,7 +39,7 @@ export default class ProfileScreen extends React.Component {
             <View style={styles.profileInfo}>
               <View>
                   <Image style={styles.profilePicture}
-                    source={Images.anon}
+                    source={Images.profilePic}
                     resizeMode='contain'/>
               </View>
               <Text style={styles.profileName}> Casey Wong </Text>
@@ -64,7 +66,7 @@ export default class ProfileScreen extends React.Component {
             <View style={styles.profileInfo}>
               <View>
                   <Image style={styles.profilePicture}
-                    source={Images.anon}
+                    source={Images.profilePic}
                     resizeMode='contain'/>
               </View>
               <Text style={styles.profileName}> Casey Wong </Text>
@@ -107,7 +109,8 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'gray'
+    borderColor: 'black',
+    borderWidth: 2,
   },
   profilePicture: {
     height: Metrics.images.large,

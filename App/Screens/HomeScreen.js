@@ -5,7 +5,7 @@ import { StyleSheet, Text, View, Image,
 
 import { FontAwesome } from '@expo/vector-icons'
 import { Images, Colors, Metrics } from '../Themes'
-import SessionSettings from '../Screens/Disasterpiece/SessionSettings.js'
+
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
@@ -15,8 +15,13 @@ export default class HomeScreen extends React.Component {
     super(props);
   }
 
+  static navigationOptions = {
+    headerTitle: 'ArtBot',
+    headerStyle: { backgroundColor: 'deepskyblue' }
+  };
+
   render() {
-    const { navigate } = this.props.navigation;
+    const { navigation } = this.props;
 
     return (
       <View style={styles.container}>
@@ -31,17 +36,17 @@ export default class HomeScreen extends React.Component {
         </View>
         <View style={styles.control}>
           <TouchableOpacity style={styles.controlButtonWrapper}
-            onPress={()=> Alert.alert("To Session Settings")}>
+            onPress={()=> navigation.navigate('SessionSettingsScreen')}>
             <Text style={styles.continueMessage}> Start a New Canvas </Text>
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.controlButtonWrapper}
-            onPress={()=> Alert.alert('Upload Artwork')}>
+            onPress={()=> navigation.navigate('UploadArtworkScreen')}>
             <Text style={styles.continueMessage}> Upload Artwork </Text>
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.controlButtonWrapper}
-            onPress={()=> Alert.alert('Check in!')}>
+            onPress={()=> navigation.navigate('ChatbotScreen')}>
             <Text style={styles.continueMessage}> Check in! </Text>
           </TouchableOpacity>
         </View>

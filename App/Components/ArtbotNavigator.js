@@ -25,7 +25,7 @@ export default class StatsCalendar extends Component {
           </TouchableOpacity>
 
           <TouchableOpacity
-            onPress={()=> navigate.navigate('HomeScreen')}>
+            onPress={()=> navigate.navigate('DisasterpieceNav')}>
             <FontAwesome name="home"
               color='deepskyblue'
               size={30}/>
